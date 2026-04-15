@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MARTES 14 DE ABRIL DEL 2026</title>
+
+  <style>
+    :root{
+      --bg1:#05040a;
+      --bg2:#0c0716;
+      --paper1:#0f0b1b;
+      --paper2:#130d22;
+
+      --text:#f4f0ff;
+      --muted:#c8b9ff;
+
+      --gold:#f2d7ff;
+      --line:rgba(200, 170, 255, 0.22);
+
+      --violet:#b97cff;
+      --violet2:#7c2cff;
+      --pink:#ff9be5;
+
+      --shadow: 0 18px 55px rgba(0,0,0,0.65);
+      --radius: 22px;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: "Georgia", "Times New Roman", serif;
+    }
+
+    body{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:40px 15px;
+      background:
+        radial-gradient(circle at top left, rgba(185,124,255,0.25), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(255,155,229,0.18), transparent 55%),
+        linear-gradient(160deg, var(--bg1), var(--bg2));
+      color:var(--text);
+      overflow-x:hidden;
+    }
+
+    /* pequeñas estrellas suaves */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background-image:
+        radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,0.25) 50%, transparent 60%),
+        radial-gradient(1.5px 1.5px at 70% 40%, rgba(255,255,255,0.18) 50%, transparent 60%),
+        radial-gradient(1.8px 1.8px at 40% 80%, rgba(255,255,255,0.22) 50%, transparent 60%),
+        radial-gradient(1.3px 1.3px at 85% 75%, rgba(255,255,255,0.16) 50%, transparent 60%),
+        radial-gradient(1.7px 1.7px at 10% 70%, rgba(255,255,255,0.17) 50%, transparent 60%);
+      opacity:0.8;
+      pointer-events:none;
+      z-index:-1;
+    }
+
+    .frame{
+      width:100%;
+      max-width:920px;
+      position:relative;
+      border-radius:var(--radius);
+      padding:3px;
+      background:linear-gradient(120deg, rgba(185,124,255,0.8), rgba(255,155,229,0.55), rgba(124,44,255,0.75));
+      box-shadow: 0 0 40px rgba(185,124,255,0.20);
+    }
+
+    .card{
+      background:linear-gradient(160deg, var(--paper1), var(--paper2));
+      border-radius:calc(var(--radius) - 2px);
+      padding:38px 38px 32px 38px;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(255,255,255,0.06);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:-60px;
+      background:
+        radial-gradient(circle at 20% 15%, rgba(185,124,255,0.18), transparent 55%),
+        radial-gradient(circle at 80% 75%, rgba(255,155,229,0.12), transparent 60%);
+      filter: blur(2px);
+      opacity:0.9;
+      z-index:0;
+    }
+
+    .card *{
+      position:relative;
+      z-index:1;
+    }
+
+    .top{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:20px;
+      margin-bottom:18px;
+    }
+
+    .date{
+      font-size:14px;
+      letter-spacing:0.6px;
+      color:var(--muted);
+      font-style:italic;
+      opacity:0.95;
+      padding:10px 14px;
+      border:1px solid rgba(200,170,255,0.18);
+      border-radius:14px;
+      background:rgba(255,255,255,0.03);
+      backdrop-filter: blur(4px);
+    }
+
+    .seal{
+      width:52px;
+      height:52px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: radial-gradient(circle, rgba(185,124,255,0.9), rgba(124,44,255,0.65));
+      box-shadow:
+        0 0 20px rgba(185,124,255,0.35),
+        0 0 40px rgba(124,44,255,0.25);
+      border:1px solid rgba(255,255,255,0.10);
+      font-size:22px;
+    }
+
+    .divider{
+      height:1px;
+      width:100%;
+      background:linear-gradient(90deg, transparent, rgba(200,170,255,0.35), transparent);
+      margin:16px 0 24px 0;
+    }
+
+    h1{
+      font-size:26px;
+      font-weight:700;
+      letter-spacing:0.5px;
+      margin-bottom:8px;
+      color:var(--gold);
+      text-shadow:0 0 10px rgba(185,124,255,0.18);
+    }
+
+    .subtitle{
+      font-size:15px;
+      color:rgba(255,255,255,0.72);
+      font-style:italic;
+      margin-bottom:18px;
+    }
+
+    .letter{
+      font-size:18px;
+      line-height:1.75;
+      color:rgba(244,240,255,0.95);
+      text-align:justify;
+    }
+
+    .letter p{
+      margin-bottom:16px;
+    }
+
+    .letter strong{
+      color:#ffffff;
+      text-shadow: 0 0 10px rgba(255,255,255,0.08);
+    }
+
+    .signature{
+      margin-top:22px;
+      padding-top:18px;
+      border-top:1px solid rgba(200,170,255,0.18);
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      align-items:flex-end;
+      text-align:right;
+    }
+
+    .signature .name{
+      font-size:18px;
+      font-weight:700;
+      color:rgba(255,255,255,0.92);
+    }
+
+    .signature .extra{
+      font-size:14px;
+      color:rgba(200,185,255,0.85);
+      font-style:italic;
+    }
+
+    /* frase neon morado */
+    .neon{
+      margin-top:28px;
+      padding:18px 18px;
+      border-radius:18px;
+      border:1px solid rgba(185,124,255,0.22);
+      background:rgba(185,124,255,0.06);
+      font-size:16px;
+      line-height:1.7;
+      text-align:center;
+      color:#e9d9ff;
+      text-shadow:
+        0 0 6px rgba(185,124,255,0.75),
+        0 0 12px rgba(185,124,255,0.55),
+        0 0 22px rgba(124,44,255,0.45),
+        0 0 35px rgba(124,44,255,0.35);
+      box-shadow:
+        0 0 25px rgba(185,124,255,0.10),
+        0 0 55px rgba(124,44,255,0.08);
+    }
+
+    .neon strong{
+      color:#ffffff;
+      text-shadow:
+        0 0 8px rgba(185,124,255,0.95),
+        0 0 18px rgba(124,44,255,0.65);
+    }
+
+    /* decoraciones */
+    .ornament{
+      margin:22px auto 0 auto;
+      width:180px;
+      height:26px;
+      position:relative;
+      opacity:0.9;
+    }
+
+    .ornament::before,
+    .ornament::after{
+      content:"";
+      position:absolute;
+      top:50%;
+      width:65px;
+      height:1px;
+      background:linear-gradient(90deg, transparent, rgba(200,170,255,0.45), transparent);
+    }
+
+    .ornament::before{
+      left:0;
+    }
+
+    .ornament::after{
+      right:0;
+    }
+
+    .ornament span{
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%, -50%);
+      font-size:18px;
+      color:rgba(255,155,229,0.9);
+      text-shadow:0 0 10px rgba(255,155,229,0.25);
+    }
+
+    @media(max-width:650px){
+      .card{
+        padding:26px 20px 24px 20px;
+      }
+      .letter{
+        font-size:16.5px;
+      }
+      h1{
+        font-size:22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="frame">
+    <div class="card">
+
+      <div class="top">
+        <div class="date">Martes, 14 de abril de 2026 — Noche</div>
+        <div class="seal">💜</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <h1>Mi amor,</h1>
+      <div class="subtitle">Una carta escrita con el corazón, solo para ti.</div>
+
+      <div class="letter">
+        <p>
+          Esta noche no pude quedarme callado… porque te llevo en la cabeza y en el pecho con una fuerza que no sé explicar.
+          Hoy fue uno de esos días en los que te sentí más sensible, más calladita, como si algo dentro de ti estuviera pesando demasiado…
+          y aunque sé que estás pasando por tu periodo y que eso te mueve todo por dentro, igual me dolió verte así.
+          Me dolió porque cuando tú te apagas, el mundo se me vuelve más frío.
+        </p>
+
+        <p>
+          No voy a mentirte… hoy no me sentí del todo cómodo con ese bajón de ánimo.
+          No porque me moleste, no porque me canse, sino porque me asusta no poder aliviarte lo suficiente.
+          Me desespera sentir que no puedo abrazarte desde donde estoy, que no puedo meterte en mi pecho para que descanses ahí
+          y se te olvide el dolor, la incomodidad, el cansancio… todo.
+        </p>
+
+        <p>
+          Pero incluso así… incluso en un día así, tú sigues siendo lo más hermoso que tengo.
+        </p>
+
+        <p>
+          Y quiero que lo sepas bien: no tienes que estar bien todo el tiempo para que yo te ame.
+          No tienes que sonreír siempre, ni fingir fuerza, ni ocultar tus bajones para no incomodarme.
+          Si tú estás triste, yo me quedo contigo en tu tristeza.
+          Si tú estás cansada, yo me vuelvo tu descanso.
+          Si tú sientes que todo te supera, entonces yo me convierto en el lugar donde puedes soltarlo todo sin miedo.
+        </p>
+
+        <p>
+          Porque tú eres mi amor… y yo no quiero una versión perfecta de ti.
+          Yo quiero a ti, completa, real, con tus días brillantes y con tus días grises.
+        </p>
+
+        <p>
+          Y sobre lo que hablamos… cuando te dije que estabas rara… perdóname si sonó feo o si te hizo sentir mal.
+          A veces digo cosas sin medirlas, pero lo que yo sentía no era rechazo, era preocupación.
+          Y tú me dijiste algo que se me quedó clavado: que tú eres rara… y que eso es lo que dicen y han dicho.
+        </p>
+
+        <p>
+          Mi amor… escucha esto con el corazón abierto:
+        </p>
+
+        <p>
+          Para mí tú no eres rara. Tú eres distinta, sí… pero distinta de una forma preciosa.
+          Eres diferente porque no eres como cualquiera.
+          Porque tienes una manera única de pensar, de sentir, de reaccionar, de amar.
+          Y si el mundo no lo entiende, que no lo entienda.
+          A mí me encanta que seas así, porque esa “rareza” tuya es exactamente lo que te hace especial… es lo que te hace ser tú.
+        </p>
+
+        <p>
+          Yo no siento que estés mal. Yo siento que eres intensa, profunda, emocional, real… y eso no es raro.
+          Eso es valiente.
+        </p>
+
+        <p>
+          Y si tú a veces te sientes incomprendida, si a veces sientes que nadie te entiende del todo, yo quiero que te acuerdes de mí.
+          Porque yo no quiero entenderte solo cuando estás bien… yo quiero entenderte también cuando estás sensible, cuando estás llorando,
+          cuando estás enojada, cuando estás cansada, cuando te duele el cuerpo y la mente se te llena de pensamientos.
+        </p>
+
+        <p><strong>Yo quiero quedarme.</strong></p>
+
+        <p>
+          Quiero ser el hombre que no se va cuando tú te sientes difícil.
+          El hombre que no te juzga cuando estás en tus días más pesados.
+          El hombre que te abraza incluso cuando tú misma sientes que no te aguantas.
+        </p>
+
+        <p>
+          Y esta noche solo quiero decirte algo con toda mi alma:
+        </p>
+
+        <p><strong>Te amo demasiado.</strong></p>
+
+        <p>
+          Te amo con una pasión que me desarma, con unas ganas que me hacen temblar por dentro.
+          Te amo de una forma que no es suave ni pequeña… te amo como si mi vida te perteneciera,
+          como si tu nombre fuera mi oración favorita, como si tu cuerpo y tu alma fueran mi lugar seguro.
+        </p>
+
+        <p>
+          Y aunque hoy hayas tenido bajón, aunque hoy hayas estado diferente… para mí sigues siendo la mujer más increíble que existe.
+        </p>
+
+        <p>
+          Así que ven, amor… descansa. No te exijas. No te castigues. No te obligues a estar bien.
+        </p>
+
+        <p><strong>Yo estoy aquí.</strong></p>
+
+        <p>
+          Y si esta noche te duele el cuerpo, yo quisiera ser tus manos acariciándote lento.
+          Si te duele el corazón, yo quisiera ser tu calma.
+          Si te duele la vida, yo quisiera ser ese amor que te recuerde que no estás sola.
+        </p>
+
+        <p>
+          Porque tú no estás sola, mi amor…
+        </p>
+
+        <p><strong>Tú me tienes a mí.</strong></p>
+
+        <p>
+          Y yo voy a seguir amándote incluso en tus días difíciles, incluso cuando el mundo te diga “rara”,
+          incluso cuando tú misma lo creas.
+        </p>
+
+        <p>
+          Para mí tú eres perfecta… no por ser perfecta, sino por ser tú.
+        </p>
+
+        <p>
+          Te amo con todo lo que soy.
+        </p>
+
+        <p>
+          Buenas noches, mi vida… mi niña… mi amor.<br>
+          <strong>Y por favor no olvides nunca que eres lo mejor que me ha pasado.</strong> ❤️
+        </p>
+      </div>
+
+      <div class="signature">
+        <div class="name">Juan kaleth Mendoza Primera 💜</div>
+        <div class="extra">Con amor eterno</div>
+      </div>
+
+      <div class="ornament"><span>✦</span></div>
+
+      <div class="neon">
+        Hay amores que llegan suave… y hay amores como el mío por ti, que llegan como una tormenta bonita,
+        que se quedan como una promesa, y que se sienten como un hogar.
+        Yo no quiero solo estar contigo cuando todo esté perfecto, yo quiero estar contigo en cada parte de tu vida,
+        en cada lágrima, en cada sonrisa, en cada silencio, en cada locura hermosa que te hace ser tú.
+        Y si algún día el mundo te hace dudar de lo que vales, yo voy a recordarte con mi amor que tú eres única,
+        que tú eres increíble, y que en mi corazón siempre vas a ser mi lugar favorito…
+        <strong>VALERIA PETRO VILLAZÓN</strong>
+      </div>
+
+    </div>
+  </div>
+</body>
+  </html>
